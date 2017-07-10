@@ -74,12 +74,36 @@ class ViewController: UIViewController {
         containerView1.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint(item: containerView1, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0).isActive = true
-        
         NSLayoutConstraint(item: containerView1, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 80.0).isActive = true
-        
         NSLayoutConstraint(item: containerView1, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 150.0).isActive = true
-        
         NSLayoutConstraint(item: containerView1, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100.0).isActive = true
+        
+        button1 = UIButton(type: .custom)
+        button1.backgroundColor = UIColor.orange
+        button1.setTitle("@1x", for: .normal)
+        button1.setTitleColor(.white, for: .normal)
+        button1.translatesAutoresizingMaskIntoConstraints = false
+        containerView1.addSubview(button1)
+        
+        let centerHorizontally = NSLayoutConstraint(item: button1, attribute: .centerX, relatedBy: .equal, toItem: containerView1, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let top = NSLayoutConstraint(item: button1, attribute: .top, relatedBy: .equal, toItem: containerView1, attribute: .top, multiplier: 1.0, constant: 10.0)
+        let width = NSLayoutConstraint(item: button1, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 45.0)
+        let height = NSLayoutConstraint(item: button1, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 22.0)
+        
+        containerView1.addConstraints([centerHorizontally, top, width, height])
+        
+        button2 = UIButton(type: .custom)
+        button2.backgroundColor = UIColor.red
+        button2.setTitle("@2x", for: .normal)
+        button2.setTitleColor(.white, for: .normal)
+        button2.translatesAutoresizingMaskIntoConstraints = false
+        containerView1.addSubview(button2)
+        
+        NSLayoutConstraint(item: button2, attribute: .centerX, relatedBy: .equal, toItem: button1, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: button2, attribute: .top, relatedBy: .equal, toItem: button1, attribute: .bottom, multiplier: 1.0, constant: 10.0).isActive = true
+        NSLayoutConstraint(item: button2, attribute: .width, relatedBy: .equal, toItem: button1, attribute: .width, multiplier: 2.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: button2, attribute: .height, relatedBy: .equal, toItem: button1, attribute: .height, multiplier: 1.5, constant: 0.0).isActive = true
+        
         
     }
 
